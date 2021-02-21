@@ -1,0 +1,1 @@
+{"version":3,"file":"audio-configuration.js","sourceRoot":"","sources":["../../src/connection/audio-configuration.ts"],"names":[],"mappings":";;;AAAa,QAAA,kBAAkB,GAAG;IAChC,UAAU,EAAE,KAAK;IACjB,QAAQ,EAAE,CAAC;IACX,QAAQ,EAAE,EAAE;IACZ,SAAS,EAAE,GAAG;IACd,WAAW,EAAE,EAAE;IACf,MAAM,EAAE,OAAO;CAChB,CAAC"}
