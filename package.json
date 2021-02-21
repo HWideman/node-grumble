@@ -43,7 +43,7 @@
   "scripts": {
     "prepare": "yarn build",
     "prebuild": "rm -rf ./build",
-    "build": "tsc",
+    "build": "tsc && cp ./src/proto/Mumble.proto ./build/proto",
     "postbuild": "cp ./src/proto/Mumble.proto ./build/proto",
     "lint": "prettier --check './src/**/*.{tsx,ts}'",
     "lint:fix": "prettier --write './src/**/*.{tsx,ts}'",
