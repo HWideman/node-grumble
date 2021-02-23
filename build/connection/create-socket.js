@@ -15,15 +15,32 @@ const createSocket = (finalOptions, events) => tslib_1.__awaiter(void 0, void 0,
     socket.on('error', (error) => {
         events.emit(types_1.Events.Error, error);
     });
+    function newMultiPartBuffer(buffer, totalLength, processedLength) {
+        return JSON.parse(JSON.stringify({ buffer, totalLength, processedLength }));
+    }
+    ;
+    let multipartBuffer = null;
     socket.on('data', (data) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
         while (data.length > 6) {
             const typeId = data.readUInt16BE(0);
             const length = data.readUInt32BE(2);
             const totalLength = length + 6;
-            if (data.length < totalLength) {
-                console.warn(`Socket Data should be of length "${totalLength}" but it has "${data.length}"`);
-                console.warn(`Message Type Id: ${typeId}`);
-                break;
+            if (data.length < totalLength && multipartBuffer === null) {
+                multipartBuffer = newMultiPartBuffer(data, totalLength, data.length);
+                console.log("ISMULTIPART", multipartBuffer);
+                continue;
+            }
+            if (!!multipartBuffer) {
+                multipartBuffer.buffer = Buffer.concat([multipartBuffer.buffer, data]);
+                multipartBuffer.processedLength = multipartBuffer.processedLength + data.length;
+                console.log("BATCHED", multipartBuffer);
+            }
+            if (!!multipartBuffer && multipartBuffer.processedLength !== multipartBuffer.totalLength) {
+                continue;
+            }
+            if (!!multipartBuffer) {
+                console.log("REACHED PROCESSING STEP");
+                data = multipartBuffer.buffer;
             }
             const buffer = data.slice(6, totalLength);
             data = data.slice(buffer.length + 6);

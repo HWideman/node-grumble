@@ -6,6 +6,7 @@ import {
   MessageEventMap,
   CompleteGrumbleOptions,
   EventMap,
+  MultiPartBuffer,
 } from '../types';
 import {
   writePacketToSocket,
@@ -34,6 +35,10 @@ export const createSocket = async (
     events.emit(Events.Error, error);
   });
 
+  function newMultiPartBuffer(buffer: Buffer, totalLength: number, processedLength: number): MultiPartBuffer {
+    return JSON.parse(JSON.stringify({ buffer, totalLength, processedLength }));
+  };
+  let multipartBuffer: MultiPartBuffer | null = null;
   socket.on('data', async (data: Buffer) => {
     /**
      * Data Ingestion Loop.
@@ -49,18 +54,38 @@ export const createSocket = async (
       const length = data.readUInt32BE(2);
       const totalLength = length + 6;
 
-      if (data.length < totalLength) {
-        console.warn(
-          `Socket Data should be of length "${totalLength}" but it has "${data.length}"`
-        );
-        console.warn(`Message Type Id: ${typeId}`);
-        break;
+      if (data.length < totalLength && multipartBuffer === null) {
+          multipartBuffer = newMultiPartBuffer(data, totalLength, data.length);
+          console.log("ISMULTIPART", multipartBuffer);
+          continue;
+      }
+
+      // if (data.length < totalLength) {
+      //   console.warn(
+      //     `Socket Data should be of length "${totalLength}" but it has "${data.length}"`
+      //   );
+      //   console.warn(`Message Type Id: ${typeId}`);
+      //   break;
+      // }
+
+      if (!!multipartBuffer) {
+        multipartBuffer.buffer = Buffer.concat([multipartBuffer.buffer, data])
+        multipartBuffer.processedLength = multipartBuffer.processedLength + data.length;
+        console.log("BATCHED", multipartBuffer);
+      }
+
+      if (!!multipartBuffer && multipartBuffer.processedLength !== multipartBuffer.totalLength) {
+        continue;
       }
 
       /**
        * Extracts the message buffer out of the data stream
        * then cleans it to make room for the next message.
        */
+      if (!!multipartBuffer) {
+        console.log("REACHED PROCESSING STEP");
+        data = multipartBuffer.buffer;
+      }
       const buffer = data.slice(6, totalLength);
       data = data.slice(buffer.length + 6);
 

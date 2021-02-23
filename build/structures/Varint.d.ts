@@ -1,1 +1,2 @@
-export declare function encode(i: number): any;
+/// <reference types="node" />
+export declare function encode(i: number): Buffer;

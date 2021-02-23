@@ -1,4 +1,4 @@
-import { Reader } from 'protobufjs';
+import { Writer, Reader } from 'protobufjs';
 export interface Version {
     version: number;
     release: string;
@@ -285,224 +285,224 @@ export declare enum ContextActionModify_Operation {
 export declare function contextActionModify_OperationFromJSON(object: any): ContextActionModify_Operation;
 export declare function contextActionModify_OperationToJSON(object: ContextActionModify_Operation): string;
 export declare const Version: {
-    encode(message: Version, writer?: any): any;
+    encode(message: Version, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): Version;
     fromJSON(object: any): Version;
     fromPartial(object: DeepPartial<Version>): Version;
     toJSON(message: Version): unknown;
 };
 export declare const UDPTunnel: {
-    encode(message: UDPTunnel, writer?: any): any;
+    encode(message: UDPTunnel, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): UDPTunnel;
     fromJSON(object: any): UDPTunnel;
     fromPartial(object: DeepPartial<UDPTunnel>): UDPTunnel;
     toJSON(message: UDPTunnel): unknown;
 };
 export declare const Authenticate: {
-    encode(message: Authenticate, writer?: any): any;
+    encode(message: Authenticate, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): Authenticate;
     fromJSON(object: any): Authenticate;
     fromPartial(object: DeepPartial<Authenticate>): Authenticate;
     toJSON(message: Authenticate): unknown;
 };
 export declare const Ping: {
-    encode(message: Ping, writer?: any): any;
+    encode(message: Ping, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): Ping;
     fromJSON(object: any): Ping;
     fromPartial(object: DeepPartial<Ping>): Ping;
     toJSON(message: Ping): unknown;
 };
 export declare const Reject: {
-    encode(message: Reject, writer?: any): any;
+    encode(message: Reject, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): Reject;
     fromJSON(object: any): Reject;
     fromPartial(object: DeepPartial<Reject>): Reject;
     toJSON(message: Reject): unknown;
 };
 export declare const ServerSync: {
-    encode(message: ServerSync, writer?: any): any;
+    encode(message: ServerSync, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): ServerSync;
     fromJSON(object: any): ServerSync;
     fromPartial(object: DeepPartial<ServerSync>): ServerSync;
     toJSON(message: ServerSync): unknown;
 };
 export declare const ChannelRemove: {
-    encode(message: ChannelRemove, writer?: any): any;
+    encode(message: ChannelRemove, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): ChannelRemove;
     fromJSON(object: any): ChannelRemove;
     fromPartial(object: DeepPartial<ChannelRemove>): ChannelRemove;
     toJSON(message: ChannelRemove): unknown;
 };
 export declare const ChannelState: {
-    encode(message: ChannelState, writer?: any): any;
+    encode(message: ChannelState, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): ChannelState;
     fromJSON(object: any): ChannelState;
     fromPartial(object: DeepPartial<ChannelState>): ChannelState;
     toJSON(message: ChannelState): unknown;
 };
 export declare const UserRemove: {
-    encode(message: UserRemove, writer?: any): any;
+    encode(message: UserRemove, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): UserRemove;
     fromJSON(object: any): UserRemove;
     fromPartial(object: DeepPartial<UserRemove>): UserRemove;
     toJSON(message: UserRemove): unknown;
 };
 export declare const UserState: {
-    encode(message: UserState, writer?: any): any;
+    encode(message: UserState, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): UserState;
     fromJSON(object: any): UserState;
     fromPartial(object: DeepPartial<UserState>): UserState;
     toJSON(message: UserState): unknown;
 };
 export declare const BanList: {
-    encode(message: BanList, writer?: any): any;
+    encode(message: BanList, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): BanList;
     fromJSON(object: any): BanList;
     fromPartial(object: DeepPartial<BanList>): BanList;
     toJSON(message: BanList): unknown;
 };
 export declare const BanList_BanEntry: {
-    encode(message: BanList_BanEntry, writer?: any): any;
+    encode(message: BanList_BanEntry, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): BanList_BanEntry;
     fromJSON(object: any): BanList_BanEntry;
     fromPartial(object: DeepPartial<BanList_BanEntry>): BanList_BanEntry;
     toJSON(message: BanList_BanEntry): unknown;
 };
 export declare const TextMessage: {
-    encode(message: TextMessage, writer?: any): any;
+    encode(message: TextMessage, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): TextMessage;
     fromJSON(object: any): TextMessage;
     fromPartial(object: DeepPartial<TextMessage>): TextMessage;
     toJSON(message: TextMessage): unknown;
 };
 export declare const PermissionDenied: {
-    encode(message: PermissionDenied, writer?: any): any;
+    encode(message: PermissionDenied, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): PermissionDenied;
     fromJSON(object: any): PermissionDenied;
     fromPartial(object: DeepPartial<PermissionDenied>): PermissionDenied;
     toJSON(message: PermissionDenied): unknown;
 };
 export declare const ACL: {
-    encode(message: ACL, writer?: any): any;
+    encode(message: ACL, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): ACL;
     fromJSON(object: any): ACL;
     fromPartial(object: DeepPartial<ACL>): ACL;
     toJSON(message: ACL): unknown;
 };
 export declare const ACL_ChanGroup: {
-    encode(message: ACL_ChanGroup, writer?: any): any;
+    encode(message: ACL_ChanGroup, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): ACL_ChanGroup;
     fromJSON(object: any): ACL_ChanGroup;
     fromPartial(object: DeepPartial<ACL_ChanGroup>): ACL_ChanGroup;
     toJSON(message: ACL_ChanGroup): unknown;
 };
 export declare const ACL_ChanACL: {
-    encode(message: ACL_ChanACL, writer?: any): any;
+    encode(message: ACL_ChanACL, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): ACL_ChanACL;
     fromJSON(object: any): ACL_ChanACL;
     fromPartial(object: DeepPartial<ACL_ChanACL>): ACL_ChanACL;
     toJSON(message: ACL_ChanACL): unknown;
 };
 export declare const QueryUsers: {
-    encode(message: QueryUsers, writer?: any): any;
+    encode(message: QueryUsers, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): QueryUsers;
     fromJSON(object: any): QueryUsers;
     fromPartial(object: DeepPartial<QueryUsers>): QueryUsers;
     toJSON(message: QueryUsers): unknown;
 };
 export declare const CryptSetup: {
-    encode(message: CryptSetup, writer?: any): any;
+    encode(message: CryptSetup, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): CryptSetup;
     fromJSON(object: any): CryptSetup;
     fromPartial(object: DeepPartial<CryptSetup>): CryptSetup;
     toJSON(message: CryptSetup): unknown;
 };
 export declare const ContextActionModify: {
-    encode(message: ContextActionModify, writer?: any): any;
+    encode(message: ContextActionModify, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): ContextActionModify;
     fromJSON(object: any): ContextActionModify;
     fromPartial(object: DeepPartial<ContextActionModify>): ContextActionModify;
     toJSON(message: ContextActionModify): unknown;
 };
 export declare const ContextAction: {
-    encode(message: ContextAction, writer?: any): any;
+    encode(message: ContextAction, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): ContextAction;
     fromJSON(object: any): ContextAction;
     fromPartial(object: DeepPartial<ContextAction>): ContextAction;
     toJSON(message: ContextAction): unknown;
 };
 export declare const UserList: {
-    encode(message: UserList, writer?: any): any;
+    encode(message: UserList, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): UserList;
     fromJSON(object: any): UserList;
     fromPartial(object: DeepPartial<UserList>): UserList;
     toJSON(message: UserList): unknown;
 };
 export declare const UserList_User: {
-    encode(message: UserList_User, writer?: any): any;
+    encode(message: UserList_User, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): UserList_User;
     fromJSON(object: any): UserList_User;
     fromPartial(object: DeepPartial<UserList_User>): UserList_User;
     toJSON(message: UserList_User): unknown;
 };
 export declare const VoiceTarget: {
-    encode(message: VoiceTarget, writer?: any): any;
+    encode(message: VoiceTarget, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): VoiceTarget;
     fromJSON(object: any): VoiceTarget;
     fromPartial(object: DeepPartial<VoiceTarget>): VoiceTarget;
     toJSON(message: VoiceTarget): unknown;
 };
 export declare const VoiceTarget_Target: {
-    encode(message: VoiceTarget_Target, writer?: any): any;
+    encode(message: VoiceTarget_Target, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): VoiceTarget_Target;
     fromJSON(object: any): VoiceTarget_Target;
     fromPartial(object: DeepPartial<VoiceTarget_Target>): VoiceTarget_Target;
     toJSON(message: VoiceTarget_Target): unknown;
 };
 export declare const PermissionQuery: {
-    encode(message: PermissionQuery, writer?: any): any;
+    encode(message: PermissionQuery, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): PermissionQuery;
     fromJSON(object: any): PermissionQuery;
     fromPartial(object: DeepPartial<PermissionQuery>): PermissionQuery;
     toJSON(message: PermissionQuery): unknown;
 };
 export declare const CodecVersion: {
-    encode(message: CodecVersion, writer?: any): any;
+    encode(message: CodecVersion, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): CodecVersion;
     fromJSON(object: any): CodecVersion;
     fromPartial(object: DeepPartial<CodecVersion>): CodecVersion;
     toJSON(message: CodecVersion): unknown;
 };
 export declare const UserStats: {
-    encode(message: UserStats, writer?: any): any;
+    encode(message: UserStats, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): UserStats;
     fromJSON(object: any): UserStats;
     fromPartial(object: DeepPartial<UserStats>): UserStats;
     toJSON(message: UserStats): unknown;
 };
 export declare const UserStats_Stats: {
-    encode(message: UserStats_Stats, writer?: any): any;
+    encode(message: UserStats_Stats, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): UserStats_Stats;
     fromJSON(object: any): UserStats_Stats;
     fromPartial(object: DeepPartial<UserStats_Stats>): UserStats_Stats;
     toJSON(message: UserStats_Stats): unknown;
 };
 export declare const RequestBlob: {
-    encode(message: RequestBlob, writer?: any): any;
+    encode(message: RequestBlob, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): RequestBlob;
     fromJSON(object: any): RequestBlob;
     fromPartial(object: DeepPartial<RequestBlob>): RequestBlob;
     toJSON(message: RequestBlob): unknown;
 };
 export declare const ServerConfig: {
-    encode(message: ServerConfig, writer?: any): any;
+    encode(message: ServerConfig, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): ServerConfig;
     fromJSON(object: any): ServerConfig;
     fromPartial(object: DeepPartial<ServerConfig>): ServerConfig;
     toJSON(message: ServerConfig): unknown;
 };
 export declare const SuggestConfig: {
-    encode(message: SuggestConfig, writer?: any): any;
+    encode(message: SuggestConfig, writer?: Writer): Writer;
     decode(input: Uint8Array | Reader, length?: number | undefined): SuggestConfig;
     fromJSON(object: any): SuggestConfig;
     fromPartial(object: DeepPartial<SuggestConfig>): SuggestConfig;

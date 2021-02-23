@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import * as MumbleProto from './proto/Mumble';
 export declare type UnwrapPromise<T> = T extends PromiseLike<infer U> ? U : T;
 export declare enum Codec {
@@ -26,6 +27,11 @@ export interface NodeGrumbleOptions {
     name?: string;
     password?: string;
     tokens?: any[];
+}
+export interface MultiPartBuffer {
+    buffer: Buffer;
+    totalLength: number;
+    processedLength: number;
 }
 export interface CompleteGrumbleOptions {
     url: string;

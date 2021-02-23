@@ -39,6 +39,11 @@ export interface NodeGrumbleOptions {
   tokens?: any[];
 }
 
+export interface MultiPartBuffer {
+  buffer: Buffer;
+  totalLength: number;
+  processedLength: number;
+}
 export interface CompleteGrumbleOptions {
   url: string;
   port: number;
